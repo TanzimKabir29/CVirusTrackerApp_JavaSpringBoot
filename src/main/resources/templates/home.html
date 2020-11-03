@@ -10,26 +10,40 @@
 </head>
 
 <body>
+    <div class="container">
+        <h1>Coronavirus Tracker Application</h1>
+        <p>This application lists the current number of cases reported accross the globe.</p>
+        <div class="jumbotron">
+            <div style="width: 49%; display: inline-block;">
+                <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+                <p class="lead">Total cases reported as of now today.</p>
+            </div>
+            <div style="width: 49%; display: inline-block;">
+                <h1 class="display-4" th:text="${totalNewCases}"></h1>
+                <p class="lead">Total new cases reported since yesterday.</p>
+            </div>
+        </div>
 
-    <h1>Coronavirus Tracker Application</h1>
-    <p>This application lists the current number of cases reported accross the globe.</p>
-    <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">Total cases reported as of today.</p>
-        
+        <table class="table table-hover table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th>STATE</th>
+                    <th>COUNTRY</th>
+                    <th>TOTAL CASES REPORTED</th>
+                    <th>CHANGES SINCE LAST DAY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="locationStat : ${locationStats}">
+                    <td th:text="${locationStat.state}"></td>
+                    <td th:text="${locationStat.country}"></td>
+                    <td th:text="${locationStat.latestTotalCases}">0</td>
+                    <td th:text="${locationStat.diffFromPreviousDay}">0</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <table>
-        <tr>
-            <th>STATE</th>
-            <th>COUNTRY</th>
-            <th>TOTAL CASES REPORTED</th>
-        </tr>
-        <tr th:each="locationStat : ${locationStats}">
-            <td th:text="${locationStat.state}"></td>
-            <td th:text="${locationStat.country}"></td>
-            <td th:text="${locationStat.latestTotalCases}">0</td>
-        </tr>
-    </table>
+
 
 </body>
 

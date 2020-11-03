@@ -5,6 +5,7 @@ public class LocationStats {
     private String state;
     private String country;
     private int latestTotalCases;
+    private int diffFromPreviousDay;
 
     public String getState() {
         return state;
@@ -35,6 +36,14 @@ public class LocationStats {
         return "LocationStats [country=" + country +
                 ", latestTotalCases=" + latestTotalCases +
                 ", state=" + state + "]";
+    }
+
+    public int getDiffFromPreviousDay() {
+        return diffFromPreviousDay;
+    }
+
+    public void setDiffFromPreviousDay(int diffFromPreviousDay) {
+        this.diffFromPreviousDay = diffFromPreviousDay;
     }
     
 }
